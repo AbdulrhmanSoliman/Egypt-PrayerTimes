@@ -99,7 +99,7 @@ function getLocation() {
     let lat = position.coords.latitude;
     let long = position.coords.longitude;
     fetch(
-      `http://api.aladhan.com/v1/calendar/${date.getFullYear()}/${
+      `https://api.aladhan.com/v1/calendar/${date.getFullYear()}/${
         date.getMonth() + 1
       }?latitude=${lat}&longitude=${long}&method=5`
     )
