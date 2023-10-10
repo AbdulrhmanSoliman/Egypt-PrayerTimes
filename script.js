@@ -27,7 +27,7 @@ allCountries.forEach((li) => {
   });
 });
 // get city json data
-fetch("/cities.json")
+fetch("https://abdulrhmansoliman.github.io/Egypt-PrayerTimes/cities.json")
   .then((response) => {
     return response.json();
   })
