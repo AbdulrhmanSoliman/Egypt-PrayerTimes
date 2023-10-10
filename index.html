@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مواقيت الصلاة</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/fc783d90f7.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <a href="#">Prayers Times</a>
+      <span>عربي</span>
+    </nav>
+    <div class="inputs_data">
+      <div class="country_data">
+        <div class="country">
+          <input
+            type="text"
+            aria-label="hidden"
+            placeholder="Select your country..."
+          />
+          <i class="fa-solid fa-arrow-right arrow"></i>
+          <ul>
+            <li>Egypt</li>
+          </ul>
+        </div>
+        <div class="city">
+          <input
+            type="text"
+            aria-label="hidden"
+            placeholder="Select your city..."
+            disabled
+          />
+          <i class="fa-solid fa-arrow-right arrow"></i>
+          <ul>
+            <li>ss</li>
+          </ul>
+        </div>
+      </div>
+      <div class="or">
+        <span>Or</span>
+        <button aria-label="hidden" class="location_btn">
+          Get your location
+        </button>
+      </div>
+    </div>
+    <div class="times">
+      <ul class="days"></ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
