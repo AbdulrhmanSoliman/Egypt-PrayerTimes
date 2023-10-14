@@ -155,6 +155,13 @@ input:disabled {
 }
 
 /* # Times */
+.cityName {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
 
 .times .days {
   padding: 0;
@@ -182,6 +189,10 @@ input:disabled {
   font-weight: bold;
   position: relative;
 }
+.times .days .day .date.active {
+  background-color: cadetblue;
+  color: white;
+}
 .times .days .day .date p {
   margin: 0;
 }
@@ -197,15 +208,11 @@ input:disabled {
 }
 .times .days .day .prayers li {
   display: flex;
-  justify-content: space-around;
-  /* gap: 73px; */
+  justify-content: space-between;
   padding-block: 5px;
+  padding-inline: 30px;
   border-bottom: 1px solid #ccc;
 }
 .times .days .day .prayers li:nth-child(even) {
   background-color: #eee;
-}
-.times .days .day .prayers li p {
-}
-.times .days .day .prayers li span {
 }

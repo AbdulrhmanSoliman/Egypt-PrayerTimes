@@ -58,6 +58,9 @@ fetch("https://abdulrhmansoliman.github.io/Egypt-PrayerTimes/cities.json")
         li.parentElement.classList.remove("active");
         cityArrow.classList.remove("rotate");
         citiesInput.value = li.innerText;
+        // set city name
+        let cityName = document.querySelector(".cityName");
+        cityName.innerText = li.innerText + " City";
         // get times
         getTimes(countiesInput.value, citiesInput.value);
       });
@@ -116,11 +119,17 @@ function filtered(res) {
   let date = new Date();
   let allData = res.data;
   let filtered = allData.filter((d) => {
-    return d.date.gregorian.day >= date.getDate();
+    return d.date.gregorian.day >= date.getDate() - 1;
   });
   filtered.length = 7;
   filtered.forEach((f) => {
     setAllPrayers(f);
+  });
+  let dayDate = document.querySelectorAll(".day .date span");
+  dayDate.forEach((d) => {
+    if (parseInt(d.innerText) == date.getDate()) {
+      d.parentElement.classList.add("active");
+    }
   });
 }
 
@@ -134,30 +143,37 @@ function setAllPrayers(data) {
   <ul class="prayers">
     <li>
       <p>Fajr</p>
-      <span>${data.timings.Fajr}</span>
+      <span>${convetTo12h(data.timings.Fajr)} AM</span>
     </li>
     <li>
       <p>Sunrise</p>
-      <span>${data.timings.Sunrise}</span>
+      <span>${convetTo12h(data.timings.Sunrise)} AM</span>
     </li>
     <li>
       <p>Dhuhr</p>
-      <span>${data.timings.Dhuhr}</span>
+      <span>${convetTo12h(data.timings.Dhuhr)} PM</span>
     </li>
     <li>
       <p>Asr</p>
-      <span>${data.timings.Asr}</span>
+      <span>${convetTo12h(data.timings.Asr)} PM</span>
     </li>
     <li>
       <p>Maghrib</p>
-      <span>${data.timings.Maghrib}</span>
+      <span>${convetTo12h(data.timings.Maghrib)} PM</span>
     </li>
     <li>
       <p>Isha</p>
-      <span>${data.timings.Isha}</span>
+      <span>${convetTo12h(data.timings.Isha)} PM</span>
     </li>
   </ul>
 </li>
   `;
   allDays.innerHTML += content;
+  function convetTo12h(timing) {
+    // 05:31 (EEST)
+    let hours = parseInt(timing);
+    return `${hours > 12 ? hours - 12 : hours}${timing
+      .slice(2)
+      .replace("(EEST)", "")}`;
+  }
 }
