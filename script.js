@@ -151,7 +151,7 @@ function setAllPrayers(data) {
     </li>
     <li>
       <p>Dhuhr</p>
-      <span>${convetTo12h(data.timings.Dhuhr)} PM</span>
+      <span>${convetTo12h(data.timings.Dhuhr)} AM</span>
     </li>
     <li>
       <p>Asr</p>
