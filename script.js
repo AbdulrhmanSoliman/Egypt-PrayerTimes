@@ -170,10 +170,9 @@ function setAllPrayers(data) {
   `;
   allDays.innerHTML += content;
   function convetTo12h(timing) {
-    // 05:31 (EEST)
     let hours = parseInt(timing);
     return `${hours > 12 ? hours - 12 : hours}${timing
       .slice(2)
-      .replace("(EEST)", "")}`;
+      .replace("(EET)", "")}`;
   }
 }
