@@ -60,7 +60,7 @@ fetch("https://abdulrhmansoliman.github.io/Egypt-PrayerTimes/cities.json")
         citiesInput.value = li.innerText;
         // set city name
         let cityName = document.querySelector(".cityName");
-        cityName.innerText = li.innerText + " City";
+        cityName.innerText = li.innerText;
         // get times
         getTimes(countiesInput.value, citiesInput.value);
       });
@@ -118,6 +118,7 @@ function getLocation() {
 function filtered(res) {
   let date = new Date();
   let allData = res.data;
+  // remove all outdate days and choose 7 days upcoming
   let filtered = allData.filter((d) => {
     return d.date.gregorian.day >= date.getDate() - 1;
   });
@@ -126,6 +127,7 @@ function filtered(res) {
     setAllPrayers(f);
   });
   let dayDate = document.querySelectorAll(".day .date span");
+  // highlight the current day of thr prayers
   dayDate.forEach((d) => {
     if (parseInt(d.innerText) == date.getDate()) {
       d.parentElement.classList.add("active");
@@ -151,7 +153,9 @@ function setAllPrayers(data) {
     </li>
     <li>
       <p>Dhuhr</p>
-      <span>${convetTo12h(data.timings.Dhuhr)} AM</span>
+      <span>${convetTo12h(data.timings.Dhuhr)} ${
+    parseInt(data.timings.Dhuhr) >= 12 ? "PM" : "AM" // Beacuse timing of Dhuhr can be full in 12pm and 11am
+  }</span>
     </li>
     <li>
       <p>Asr</p>
