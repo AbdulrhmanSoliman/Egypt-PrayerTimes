@@ -4,7 +4,7 @@
 
 ## Links
 
-- Live Site URL: [See your city prayer times](https://abdulrhmansoliman.github.io/Egypt-PrayerTimes/)
+- Live Site URL: [See your city prayer times here](https://abdulrhmansoliman.github.io/Egypt-PrayerTimes/)
 - My GitHub URL: [GitHub](http://github.com/AbdulrhmanSoliman)
 
 ## Author
